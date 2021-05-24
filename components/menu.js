@@ -15,6 +15,7 @@ export default function Menu({ navigation }){
 
 
   const onSelect =(id) => {
+    console.log('id', id);
     navigation.navigate('FigurePage')
   }
     return (
@@ -36,26 +37,7 @@ export default function Menu({ navigation }){
 }
 
 const styles = StyleSheet.create({
-  list: {
-    // position:'absolute', 
-    // backgroundColor:'blue', 
-    // width:"100%",
-    // margin:0,
-    // padding:0,
-    // zIndex:99,
-    // top:50,
-    // left:0,
-  },
-  listItem: {
-    // backgroundColor:"red",
-    // backgroundColor: "#cde1f9",
-    // margin:0,
-    // padding:0,
-    // width:"100%",
 
-    // flexDirection:'row',
-    // justifyContent:'space-between'
-  },
   thumbnailMr: {
     marginRight:15
   }

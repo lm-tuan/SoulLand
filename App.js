@@ -3,60 +3,34 @@ import { List, ListItem, Icon, Thumbnail,
   Container, Header, Title, Content, Footer, 
   FooterTab, Button, Left, Right, Body, Text , Badge} from 'native-base';
 import Menu from './components/menu';
-import FigurePage from './page/figure';
+import Navbar from './components/navbar';
+import FigurePage from './layouts/figure/propertyTitle';
 import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
-const figures = [
-  { id:1, name: "Đường Tam", path: require('./assets/images/duongtam.jpg') },
-  { id:2, name: "Tiểu Vũ", path: require("./assets/images/tieuvu.jpg") },
-  { id:3, name: "Đới Mộc Bạch", path: require("./assets/images/doimocbach.jpg") },
-  { id:4, name: "Chu Trúc Thanh", path: require("./assets/images/chutructhanh.jpg") },
-  { id:5, name: "Ninh Vinh Vinh", path: require("./assets/images/ninhvinhvinh.jpg") },
-  { id:6, name: "Mã Hồng Tuấn", path: require("./assets/images/mahongtuan.jpg") },
-  { id:7, name: "Áo Tư Tạp", path: require("./assets/images/aotutap.jpg") },  
-]
 
 const HomeStack = createStackNavigator();
 
-
 export default function App() {
-  const [isOpen, setIsOpen] = useState(false);
-  const onPressMenu =  () => { 
-    // setIsOpen(!isOpen);
-    console.log('onPressMenu');
-   }
-   const onSelect =(id) => {
-    console.log('onSelect', id)
-  }
 
     return (
       <Container>
         <NavigationContainer>
-          {/* <Header>
-            <Left>
-              <Button transparent
-                onPress = { onPressMenu }
-              >
-                <Icon name='menu' />
-              </Button>
-            </Left>
-            <Body>
-              <Title>Đấu La Đại Lục</Title>
-            </Body>
-            <Right />
-          </Header> */}
             <HomeStack.Navigator>
               <HomeStack.Screen 
                 name="Menu" 
                 component={Menu} 
-                options={{ title: 'Menu'}}
+                // options={{ title: 'Menu'}}
+                options={({ navigation }) => ({
+                  title: '',
+                  header: Navbar,
+                })}
                 />
               <HomeStack.Screen 
                 name="FigurePage" 
                 component={FigurePage} 
-                options={{ title: 'Trở về menu' }}
+                options={{ title: 'Trở về Menu' }}
               />
             </HomeStack.Navigator>
           </NavigationContainer>
