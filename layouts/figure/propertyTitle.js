@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { Container, Header, Tab, Tabs, TabHeading, Icon, Text, Content, Thumbnail } from 'native-base';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
 import PersonDetail from './personDetail';
 import Spirit from './spirit';
+import SpiritDetail from '../spiritDetail/spiritDetail';
+const SpiritStack = createStackNavigator();
+
 export default class FigurePage extends Component {
   render() {
     return (
@@ -21,7 +26,25 @@ export default class FigurePage extends Component {
             <Tab heading={ <TabHeading>
               <Thumbnail  style = {styles.thumbnail} small source={require("../../assets/images/honhoan.jpg")} />  
                 <Text style = {styles.textAtribute}>Hồn Hoàn</Text></TabHeading>}>
-                <Spirit />
+                <NavigationContainer>
+                <SpiritStack.Navigator>
+                  <SpiritStack.Screen 
+                    name="Spirit" 
+                    component={Spirit} 
+                    // options={{ title: 'Menu'}}
+                    options={({ navigation }) => ({
+                      title: '',
+                      // header: Navbar,
+                    })}
+                    />
+                  <SpiritStack.Screen 
+                    name="SpiritDetail" 
+                    component={SpiritDetail} 
+                    options={{ title: 'SpiritDetail' }}
+                  />
+                </SpiritStack.Navigator>
+              </NavigationContainer>
+                {/* <Spirit /> */}
             </Tab>
             <Tab heading={ <TabHeading>
                 <Thumbnail style = {styles.thumbnail}  small source={require("../../assets/images/honcot.jpg")} />  
