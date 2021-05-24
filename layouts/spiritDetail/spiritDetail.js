@@ -5,16 +5,10 @@ export default function SpiritDetail() {
   return(
     <Container>
     <Content style = {styles.content}>
-      <H3 style = {styles.h3Style}>Hình tượng nhân vật</H3>
-      <Text style = {styles.text}>Kiếp trước: Hắn là đệ tử ngoại môn Đường gia, thiên tư thông minh, 
-          học được một thân võ học ám khí tinh túy của Đường Môn. 
-          Cho nên lúc thiết kế kiếp trước Đường Tam, thắt lưng của hắn 
-          thiết kế thêm hộ oản tụ tiễn để trang bị ám khí, dùng vũ
-           khí tinh vi để biểu hiện ra chỗ đặc biệt của nhân vật. 
-           Về phần màu sắc, ban đầu đã quyết định dùng sắc 
-           thái màu lam để đại biểu Đường Tam. Dùng thêm một
-            chút màu vàng để tô điểm chỗ chi tiết, tinh xảo lại không xốc nổi,
-             rất phù hợp cá tính kiếp trước của Đường Tam.
+      <H3 style = {styles.h3Style}>Đệ nhất hồn hoàn: Mạn Đà La Xà </H3>
+      <Text style = {styles.text}>
+      Tu vi gần bốn trăm năm. Lam ngân thảo sau khi rót vào Mạn đà la xà hồn hoàn trở nên cứng cỏi hơn, 
+      còn kèm theo nhất định độc tính của Màn đà la xà.
       </Text>
     </Content>
     

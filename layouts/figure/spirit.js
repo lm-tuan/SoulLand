@@ -2,7 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import {  List, ListItem, Text, Left, Right, Icon, Thumbnail } from 'native-base';
-export default function Sprit(){
+
+import SpiritDetail from '../spiritDetail/spiritDetail';
+
+export default function Sprit( { navigation }){
   const figures = [
     { id:1, name: "Đệ nhất hồn hoàn: Mạn Đà La Xà", path: require('../../assets/images/spirit/honhoan01.jpg') },
     { id:2, name: "Đệ nhị hồn hoàn: Quỷ Đằng", path: require("../../assets/images/spirit/honhoan02.jpg") },
@@ -16,7 +19,7 @@ export default function Sprit(){
   ]
 
   const onSelect =(id) => {
-    console.log('id', id);
+    navigation.navigate('SpiritDetail')
   }
     return (
           <List style = { styles.list}>

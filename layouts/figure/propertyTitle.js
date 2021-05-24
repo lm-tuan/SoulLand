@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Header, Tab, Tabs, TabHeading, Icon, Text, Content, Thumbnail } from 'native-base';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,8 +8,8 @@ import Spirit from './spirit';
 import SpiritDetail from '../spiritDetail/spiritDetail';
 const SpiritStack = createStackNavigator();
 
-export default class FigurePage extends Component {
-  render() {
+export default function propertyTitle() {
+  
     return (
         <Container >
           <Header style = {styles.header}>
@@ -26,24 +26,26 @@ export default class FigurePage extends Component {
             <Tab heading={ <TabHeading>
               <Thumbnail  style = {styles.thumbnail} small source={require("../../assets/images/honhoan.jpg")} />  
                 <Text style = {styles.textAtribute}>Hồn Hoàn</Text></TabHeading>}>
-                <NavigationContainer>
+                {/* <NavigationContainer> */}
                 <SpiritStack.Navigator>
                   <SpiritStack.Screen 
                     name="Spirit" 
                     component={Spirit} 
-                    // options={{ title: 'Menu'}}
-                    options={({ navigation }) => ({
-                      title: '',
-                      // header: Navbar,
+                    headerMode = "none"
+                    // options={{ title: 'Trở về Mục Hồn Hoàn'}}
+                    options={() => ({
+                      // title: 'Trở về Mục Hồn Hoàn',
+                      header: () => (<></>),
                     })}
                     />
                   <SpiritStack.Screen 
                     name="SpiritDetail" 
                     component={SpiritDetail} 
-                    options={{ title: 'SpiritDetail' }}
+                    options={{ title: 'Trở về Mục Hồn Hoàn' }}
+                    
                   />
                 </SpiritStack.Navigator>
-              </NavigationContainer>
+              {/* </NavigationContainer> */}
                 {/* <Spirit /> */}
             </Tab>
             <Tab heading={ <TabHeading>
@@ -57,7 +59,6 @@ export default class FigurePage extends Component {
           </Tabs>
       </Container>
     );
-  }
 }
 
 
