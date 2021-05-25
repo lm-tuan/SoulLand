@@ -15,8 +15,12 @@
     "react": "17.0.1",
     "react-native": "0.64.1",
     "react-native-easy-grid": "^0.2.2",
+    "react-native-media-controls": "^2.3.0",
     "react-native-screens": "^3.2.0",
+    "react-native-slider": "^0.11.0",
     "react-native-vector-icons": "^8.1.0",
+    "react-native-video": "^5.1.1",
+    "react-native-video-player": "^0.10.1",
     "react-navigation": "^4.4.4"
   },
   "devDependencies": {
