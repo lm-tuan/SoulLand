@@ -1,10 +1,13 @@
 import React, { useEffect , useState } from 'react';
 import { List, ListItem, Icon, Thumbnail,
-  Container, Header, Title, Content, Footer, 
+  Container, Header, Title, Content,
   FooterTab, Button, Left, Right, Body, Text , Badge} from 'native-base';
 import Menu from './components/menu';
 import Navbar from './components/navbar';
+import Footer from './components/footer';
 import FigurePage from './layouts/figure/propertyTitle';
+import ScreenMain from './layouts/screenMain/screenMain';
+import { navigationRef } from './helpers/rootNavigation';
 import { StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -13,14 +16,13 @@ import { NavigationContainer } from '@react-navigation/native';
 const HomeStack = createStackNavigator();
 
 export default function App() {
-
     return (
       <Container>
-        <NavigationContainer>
+        <NavigationContainer ref = {navigationRef}>
             <HomeStack.Navigator>
               <HomeStack.Screen 
-                name="Menu" 
-                component={Menu} 
+                name="ScreenMain" 
+                component={ScreenMain} 
                 // options={{ title: 'Menu'}}
                 options={({ navigation }) => ({
                   title: '',
@@ -28,34 +30,19 @@ export default function App() {
                 })}
                 />
               <HomeStack.Screen 
+                name="Menu" 
+                component={Menu} 
+                options={{ title: 'Trở về Screen' }}
+              />
+              <HomeStack.Screen 
                 name="FigurePage" 
                 component={FigurePage} 
-                options={{ title: 'Trở về Menu' }}
+                options={{ title: 'Trở về Screen' }}
               />
             </HomeStack.Navigator>
+            {/* <Footer/> */}
           </NavigationContainer>
-          <Footer>
-          <FooterTab>
-            <Button badge vertical>
-              <Badge><Text>2</Text></Badge>
-              <Icon name="apps" />
-              <Text>Apps</Text>
-            </Button>
-            <Button vertical>
-              <Icon name="camera" />
-              <Text>Camera</Text>
-            </Button>
-            <Button active badge vertical>
-              <Badge ><Text>51</Text></Badge>
-              <Icon active name="navigate" />
-              <Text>Navigate</Text>
-            </Button>
-            <Button vertical>
-              <Icon name="person" />
-              <Text>Contact</Text>
-            </Button>
-          </FooterTab>
-        </Footer>    
+          <Footer/>
       </Container>
     );
 }
